@@ -1,5 +1,15 @@
 document.querySelector("#salvar").addEventListener("click", cadastrar)
 
+let lista_tarefas =[]
+
+window.addEventListener("load", ()=> {
+    lista_tarefas = JSON.parse(localStorage.getItem("lista_tarefas"))
+    lista_tarefas.forEach((tarefa) => {
+        document.querySelector("#tarefas").innerHTML += gerarCard(tarefa)
+
+    })
+})
+
 function cadastrar(){
     const modal = bootstrap.Modal.getInstance(document.querySelector("#exampleModal"))
     let titulo = document.querySelector("#titulo").value
@@ -19,7 +29,11 @@ function cadastrar(){
         return
     }
 
+    lista_tarefas.push(tarefa)
+
     document.querySelector("#tarefas").innerHTML += gerarCard(tarefa)
+
+    localStorage.setItem("lista_tarefas", JSON.stringify (lista_tarefas))
 
     modal.hide()
 
