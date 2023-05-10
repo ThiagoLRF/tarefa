@@ -30,7 +30,7 @@
                   <li><a class="dropdown-item" href="#">Já Assistidos</a></li>
                   <li><a class="dropdown-item" href="#">Animes Dublados</a></li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Baixar Animes</a></li>
+                  <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Baixar Animes</a></li>
                 </ul>
               </li>
             </ul>
@@ -77,7 +77,7 @@
                   <input id="descricao" type="text" class="form-control" placeholder="Suas Recomendações" aria-label="Recomendacões">
                 </div>
                 <div class="col-6">
-                  <input id="pontos" type="number" class="form-control" placeholder="Nota do Anime" aria-label="Nota do Anime">
+                  <input id="notas" type="number" value="10" min="1" class="form-control" placeholder="Nota do Anime" aria-label="Nota do Anime">
                 </div>
                 <div class="col-6">
                     <select id="categoria" class="form-select" aria-label="Default select example">

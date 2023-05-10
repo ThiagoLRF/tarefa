@@ -1,19 +1,27 @@
 document.querySelector("#salvar").addEventListener("click", cadastrar)
 
 function cadastrar(){
+    const modal = bootstrap.Modal.getInstance(document.querySelector("#exampleModal"))
     let titulo = document.querySelector("#titulo").value
     let descricao = document.querySelector("#descricao").value
-    let pontos = document.querySelector("#pontos").value
+    let notas = document.querySelector("#notas").value
     let categoria = document.querySelector("#categoria").value
 
     const tarefa = {
         titulo: titulo,
         descricao: descricao,
-        pontos: pontos,
+        notas: notas,
         categoria: categoria,
     }
 
+    if (tarefa.titulo.length == 0){
+        document.querySelector("#titulo").classList.add("is-invalid")
+        return
+    }
+
     document.querySelector("#tarefas").innerHTML += gerarCard(tarefa)
+
+    modal.hide()
 
 }
 
@@ -32,7 +40,7 @@ function gerarCard(tarefa){
             <p>
                 <span class="badge text-bg-warning">${tarefa.categoria}</span>
             </p>
-            <p class="card-text">${tarefa.pontos}</p>
+            <p class="card-text">${tarefa.notas}</p>
             <a href="#" class="btn btn-success">
                 <i class="bi bi-check-lg"></i>
             </a>
